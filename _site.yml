@@ -1,0 +1,12 @@
+name: "my-website"
+navbar:
+  title: "2019 Orange County State of the Environment"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Land"
+      href: land.html
+    - text: "Water"
+      href: water.html
+    - text: "Air and Energy"
+      href: air_energy.html

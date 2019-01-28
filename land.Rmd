@@ -1,0 +1,10 @@
+---
+---
+
+## Topics in  Land Resources {.tabset}
+
+```{r child="issues/biodiversity.Rmd"}
+```
+
+```{r child="issues/treecover.Rmd"}
+```
