@@ -1,6 +1,5 @@
 ---
 title: "Tree Cover"
-categories: ["land"]
 ---
 
 

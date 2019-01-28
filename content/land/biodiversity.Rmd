@@ -1,8 +1,8 @@
 ---
 title: "Biodiversity"
-categories: ["land"]
+summary: Long-running local study of bird populations highlights changes to our local environment and illustrates the global connectedness of the natural world.
 ---
-
+ 
 > Long-running local study of bird populations highlights changes to our local environment and illustrates the global connectedness of the natural world.
 
 Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The mini bird breeding survey, a regional version of the long-running national survey, has tracked local bird populations since 1999. Such systematically collected data makes it possible to examine trends in bird biodiversity on a local scale.
