@@ -2,4 +2,4 @@
 date: "2017-03-02T12:00:00-05:00"
 title: Water
 ---
-Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the "pagination" setting in the config file.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porttitor tellus eros, non rutrum odio cursus a. Integer feugiat in metus ut ornare. Duis vestibulum, metus ac malesuada placerat, odio metus aliquet nulla, venenatis imperdiet quam eros et risus. Phasellus a diam purus. Morbi dignissim pulvinar nisi a porta. Ut viverra, arcu sit amet pellentesque suscipit, diam dolor scelerisque risus, at lacinia augue purus nec erat. Duis rutrum varius tortor nec commodo. 

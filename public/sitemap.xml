@@ -51,6 +51,12 @@
   </url>
   
   <url>
+    <loc>/land/agriculture/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>/land/biodiversity/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -67,6 +73,12 @@
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/land/protected_lands/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -99,6 +111,12 @@
   
   <url>
     <loc>/land/treecover/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/land/waste/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

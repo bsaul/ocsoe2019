@@ -5,7 +5,51 @@ summary: Long-running local study of bird populations highlights changes to our 
  
 > Long-running local study of bird populations highlights changes to our local environment and illustrates the global connectedness of the natural world.
 
+
+```{r echo = FALSE, message = FALSE}
+knitr::knit_hooks$set(class = function(before, options, envir) {
+  if(before){
+    sprintf("<div class = '%s'>", options$class)
+  }else{
+    "</div>"
+  }
+})
+library(mbbs)
+library(dplyr)
+library(ggplot2)
+
+dt <- mbbs %>%
+  filter(common_name == "Wood Thrush") %>%
+  group_by(year) %>%
+  summarise(
+    count = mean(count)
+  )
+```
+
 Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The mini bird breeding survey, a regional version of the long-running national survey, has tracked local bird populations since 1999. Such systematically collected data makes it possible to examine trends in bird biodiversity on a local scale.
+
+
+```{r, class = "bio_image", echo = FALSE}
+ggplot(
+  data = dt,
+  aes(x = year, y = count)
+) + 
+  geom_line() +
+  geom_point() + 
+  scale_y_continuous(
+    "Average MBBS Count",
+    limits = c(0, 9)
+  ) + 
+  stat_smooth(method = "lm", se = FALSE) + 
+  theme_minimal() +
+  theme(
+    plot.background = element_blank()
+  ) + 
+  ggtitle(
+    "Wood Thrush counts during the MBBS"
+  )
+
+```
 
 Certain iconic specialist species such as the Wood Thrush have declined by as much as XX% in the past 20 years. Anyone who has enjoyed a summer hike in one of our local parks will certainly recognize the Wood Thrush’s flutely song. While loss and fragmentation of the eastern deciduous forest has certainly contributed to Wood Thrush decline, the winter range and travel routes of migratory birds are equally important, demonstrating how changes to a local ecosystem can have global consequences.
 
