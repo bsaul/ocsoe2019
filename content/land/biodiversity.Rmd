@@ -1,10 +1,8 @@
 ---
-title: "Biodiversity"
+title: "State of the Birds"
 summary: Long-running local study of bird populations highlights changes to our local environment and illustrates the global connectedness of the natural world.
+tags: ["Land Resources"]
 ---
- 
-> Long-running local study of bird populations highlights changes to our local environment and illustrates the global connectedness of the natural world.
-
 
 ```{r echo = FALSE, message = FALSE}
 knitr::knit_hooks$set(class = function(before, options, envir) {
@@ -26,7 +24,9 @@ dt <- mbbs %>%
   )
 ```
 
-Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The mini bird breeding survey, a regional version of the long-running national survey, has tracked local bird populations since 1999. Such systematically collected data makes it possible to examine trends in bird biodiversity on a local scale.
+`r htmltools::HTML('{{< figure src="/images/White-eyed_Vireo.jpg" title="White-Eyed Vireo by Tom Driscoll" >}}')`
+
+Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The [mini bird breeding survey](http://rhwiley.bio.unc.edu/mbbs/), a regional version of the [long-running national survey](https://www.pwrc.usgs.gov/bbs/), has tracked local bird populations since 1999. Such systematically collected data makes it possible to examine trends in bird biodiversity on a local scale.
 
 
 ```{r, class = "bio_image", echo = FALSE}
@@ -51,7 +51,7 @@ ggplot(
 
 ```
 
-Certain iconic specialist species such as the Wood Thrush have declined by as much as XX% in the past 20 years. Anyone who has enjoyed a summer hike in one of our local parks will certainly recognize the Wood Thrush’s flutely song. While loss and fragmentation of the eastern deciduous forest has certainly contributed to Wood Thrush decline, the winter range and travel routes of migratory birds are equally important, demonstrating how changes to a local ecosystem can have global consequences.
+Certain iconic specialist species such as the Wood Thrush have declined by as much as XX% in the past 20 years. Anyone who has enjoyed a summer hike in [one of our local parks](https://gis.orangecountync.gov:8443/TrailsAndParks/default.html) will certainly recognize the [Wood Thrush’s flutely song](https://www.allaboutbirds.org/guide/Wood_Thrush/sounds). While loss and fragmentation of the eastern deciduous forest has certainly contributed to Wood Thrush decline, the [winter range and travel routes of migratory birds are equally important](https://insider.si.edu/2016/01/loss-breeding-grounds-north-america-likely-cause-wood-thrush-decline/), demonstrating how changes to a local ecosystem can have global consequences.
 
 TODO: One more paragraph with a story of another bird perhaps connected to climate change. Nuthatches perhaps or another species of local concern?
 
