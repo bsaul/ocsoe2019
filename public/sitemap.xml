@@ -57,13 +57,13 @@
   </url>
   
   <url>
-    <loc>/land/biodiversity/</loc>
+    <loc>/categories/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/tags/land-resources/</loc>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -100,6 +100,12 @@
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/land/biodiversity/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
