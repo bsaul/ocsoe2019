@@ -4,7 +4,7 @@ summary: Long-running local study of bird populations highlights changes to our 
 tags: ["Land Resources"]
 ---
 
-```{r echo = FALSE, message = FALSE}
+```{r echo = FALSE, message = FALSE, warning = FALSE}
 knitr::knit_hooks$set(class = function(before, options, envir) {
   if(before){
     sprintf("<div class = '%s'>", options$class)
@@ -12,46 +12,98 @@ knitr::knit_hooks$set(class = function(before, options, envir) {
     "</div>"
   }
 })
-library(mbbs)
-library(dplyr)
-library(ggplot2)
 
-dt <- mbbs %>%
-  filter(common_name == "Wood Thrush") %>%
-  group_by(year) %>%
-  summarise(
-    count = mean(count)
-  )
+source("0a_report_functions.R")
+source("0b_model_functions.R")
+source("1a_data_prep.R")
+table_dt <- mbbs_results %>%
+  filter(local_concern) %>%
+  select(common_name, sparkline, rate, details, local_concern, significant)
 ```
 
 `r htmltools::HTML('{{< figure src="/images/White-eyed_Vireo.jpg" title="White-Eyed Vireo by Tom Driscoll" >}}')`
 
-Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The [mini bird breeding survey](http://rhwiley.bio.unc.edu/mbbs/), a regional version of the [long-running national survey](https://www.pwrc.usgs.gov/bbs/), has tracked local bird populations since 1999. Such systematically collected data makes it possible to examine trends in bird biodiversity on a local scale.
+Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The [mini bird breeding survey](http://rhwiley.bio.unc.edu/mbbs/), a regional version of the [long-running national survey](https://www.pwrc.usgs.gov/bbs/), has tracked local bird populations since 1999. Such systematicaslly collected data makes it possible to examine trends in bird biodiversity on a local scale. The following table shows species identified as of [local concern by the New Hope Audubon Society](https://www.newhopeaudubon.org/conservation/species-of-local-concern/).
 
 
 ```{r, class = "bio_image", echo = FALSE}
-ggplot(
-  data = dt,
-  aes(x = year, y = count)
-) + 
-  geom_line() +
-  geom_point() + 
-  scale_y_continuous(
-    "Average MBBS Count",
-    limits = c(0, 9)
-  ) + 
-  stat_smooth(method = "lm", se = FALSE) + 
-  theme_minimal() +
-  theme(
-    plot.background = element_blank()
-  ) + 
-  ggtitle(
-    "Wood Thrush counts during the MBBS"
-  )
+species_table <- function(table_data, details_column,
+                          width,
+                          colnames){
+  tab <- datatable(
+  cbind(' ' = '&oplus;', table_data), 
+  colnames  = colnames,
+  width  = width,
+  escape = FALSE,
+  options = list(
+    searching  = FALSE,
+    paging     = FALSE,
+    bInfo      = FALSE,
+    columnDefs = list(
+      list(targets = c(3,4,5), className = "text-center"),
+      list(targets = c(2, details_column, 6, 7), searchable = TRUE),
+      list(targets = c(0, details_column, 6, 7), visible = FALSE),
+      list(orderable = FALSE, className = 'details-control', targets = c(1, details_column))
+    )
+  ),
+  callback = JS(sprintf("
+  table.column(1).nodes().to$().css({cursor: 'pointer'});
+  
+  var format = function(d) {
+    return d[%s];
+  };
+  
+  table.on('click', 'td.details-control', function() {
+    var td = $(this), row = table.row(td.closest('tr'));
+    if (row.child.isShown()) {
+      row.child.hide();
+      td.html('&oplus;');
+    } else {
+      row.child(format(row.data())).show();
+      td.html('&CircleMinus;');
+    }
+  });
+  
+  $('ul').on( 'click', 'a.localConcern', function () {
+  table
+      .columns( 6 )
+      .search(  true )
+      .draw();
+  });
+  
+  $('ul').on( 'click', 'a.sigTrends', function () {
+  table
+      .columns( 7 )
+      .search(  true )
+      .draw();
+  });
+  
+  $('ul').on('click', 'a.all', function() {
+     table
+       .columns( )
+       .search( '' )
+       .draw();
+    });
+  
+  ", details_column)
+  )) 
+  tab$dependencies <- append(tab$dependencies, htmlwidgets:::getDependency("sparkline"))
+  tab
+}
+
+species_table(
+  table_dt, 5, 
+  width    = NULL,
+  colnames = c("", "Common name", "Trend", "Rate of Change", "", "", ""))
 
 ```
 
-Certain iconic specialist species such as the Wood Thrush have declined by as much as XX% in the past 20 years. Anyone who has enjoyed a summer hike in [one of our local parks](https://gis.orangecountync.gov:8443/TrailsAndParks/default.html) will certainly recognize the [Wood Thrush’s flutely song](https://www.allaboutbirds.org/guide/Wood_Thrush/sounds). While loss and fragmentation of the eastern deciduous forest has certainly contributed to Wood Thrush decline, the [winter range and travel routes of migratory birds are equally important](https://insider.si.edu/2016/01/loss-breeding-grounds-north-america-likely-cause-wood-thrush-decline/), demonstrating how changes to a local ecosystem can have global consequences.
+```{r, echo = FALSE}
+wdtrsh <- filter(mbbs_results, common_name == "Wood Thrush") %>% pull(log_rate)
+wdtrsh <- abs(round((exp(wdtrsh) - 1)*100, 1))
+```
+
+Certain iconic specialist species such as the Wood Thrush have declined by as much as `r wdtrsh`% annually over the last 20 years. Anyone who has enjoyed a summer hike in [one of our local parks](https://gis.orangecountync.gov:8443/TrailsAndParks/default.html) will certainly recognize the [Wood Thrush’s flutely song](https://www.allaboutbirds.org/guide/Wood_Thrush/sounds). While loss and fragmentation of the eastern deciduous forest has certainly contribute to Wood Thrush decline, the [winter range and travel routes of migratory birds are equally important](https://insider.si.edu/2016/01/loss-breeding-grounds-north-america-likely-cause-wood-thrush-decline/), demonstrating how changes to a local ecosystem can have global consequences.
 
 TODO: One more paragraph with a story of another bird perhaps connected to climate change. Nuthatches perhaps or another species of local concern?
 
