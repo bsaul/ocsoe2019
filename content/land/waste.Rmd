@@ -1,7 +1,11 @@
 ---
 title: "Waste"
 tags: ["Land Resources"]
-summary: Orange County excels at recycling. Still, citizens and county leaders have many opportunities to reduce waste.
+climateConnection: Some connection
+summary: > 
+  Orange County excels at recycling. Still, citizens and county leaders have many 
+  opportunities to reduce waste.
+bibliography: ../references.bib
 ---
 
 ```{r, echo = FALSE, message=FALSE, warning = FALSE}
@@ -39,7 +43,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam semper vel est at b
 
 ## A Title Goes Here
 
-The following interactive graphic shows tonnage of Municipal Solid Waste + Construction and Demoltion Waste and Recycling for all NC counties according to 2016-17 NC DEQ annual report. In this year, Orange County reported `r round(oc_waste_tons_pp, 2)` tons of waste per person and `r round(oc_recyc_tons_pp, 2)` tons of reycling per person. Recycling accounted for `r round(oc$prop_recycling, 2)*100`% of all reported waste and recycling. 
+The following interactive graphic shows tonnage of Municipal Solid Waste + Construction and Demoltion Waste and Recycling for all NC counties according to the 2016-17 NC DEQ annual reports [@ncwaste201617]. In this year, Orange County reported `r round(oc_waste_tons_pp, 2)` tons of waste per person and `r round(oc_recyc_tons_pp, 2)` tons of reycling per person. Recycling accounted for `r round(oc$prop_recycling, 2)*100`% of all reported waste and recycling. 
 
 ```{r, echo = FALSE, message=FALSE, warning = FALSE}
 labs <- c("Recycling", "Municipal Solid Waste+\nConstruction & Demolition", "MSW+CD+Recycling", "Proportion Recycling")
@@ -130,3 +134,5 @@ z <- girafe( code = print(g), width_svg = 6, height_svg = 6)
 girafe_options(z, opts_hover(css = "fill:red;r:5pt;") )
 
 ```
+
+## References

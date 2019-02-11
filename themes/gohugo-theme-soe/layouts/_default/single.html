@@ -26,7 +26,12 @@
         {{- .Date.Format "January 2, 2006" -}}
       </time>      
       -->
-      {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary }}{{ end }}
+      
+      <div class = "w-two-thirds-l">
+        {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary }}{{ end }}
+      </div>
+  
+      
       {{/*  
           Show "reading time" and "word count" but only if one of the following are true:
           1) A global config `params` value is set `show_reading_time = true`
