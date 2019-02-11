@@ -1,6 +1,7 @@
 ---
 title: "Waste"
 tags: ["Land Resources"]
+link-citations: true
 climateConnection: Some connection
 summary: > 
   Orange County excels at recycling. Still, citizens and county leaders have many 
