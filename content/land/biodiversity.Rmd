@@ -23,7 +23,9 @@ table_dt <- mbbs_results %>%
 
 `r htmltools::HTML('{{< figure src="/images/White-eyed_Vireo.jpg" title="White-Eyed Vireo by Tom Driscoll" >}}')`
 
-Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The [mini bird breeding survey](http://rhwiley.bio.unc.edu/mbbs/), a regional version of the [long-running national survey](https://www.pwrc.usgs.gov/bbs/), has tracked local bird populations since 1999. Such systematicaslly collected data makes it possible to examine trends in bird biodiversity on a local scale. The following table shows species identified as of [local concern by the New Hope Audubon Society](https://www.newhopeaudubon.org/conservation/species-of-local-concern/).
+Each May and June, after an exhausting migration for many bird species, a group of volunteers travel the roads of Orange County to listen for who has chosen to make a nest in our neighborhood. The [mini-bird breeding survey](http://rhwiley.bio.unc.edu/mbbs/), a regional version of the [long-running national survey](https://www.pwrc.usgs.gov/bbs/), has tracked local bird populations since 1999. Such systematically collected data makes it possible to examine trends in bird biodiversity on a local scale.
+
+The following table shows trends for [species of local concern](https://www.newhopeaudubon.org/conservation/species-of-local-concern/). 
 
 
 ```{r, class = "bio_image", echo = FALSE}
@@ -103,22 +105,31 @@ wdtrsh <- filter(mbbs_results, common_name == "Wood Thrush") %>% pull(log_rate)
 wdtrsh <- abs(round((exp(wdtrsh) - 1)*100, 1))
 ```
 
-Certain iconic specialist species such as the Wood Thrush have declined by as much as `r wdtrsh`% annually over the last 20 years. Anyone who has enjoyed a summer hike in [one of our local parks](https://gis.orangecountync.gov:8443/TrailsAndParks/default.html) will certainly recognize the [Wood Thrush’s flutely song](https://www.allaboutbirds.org/guide/Wood_Thrush/sounds). While loss and fragmentation of the eastern deciduous forest has certainly contribute to Wood Thrush decline, the [winter range and travel routes of migratory birds are equally important](https://insider.si.edu/2016/01/loss-breeding-grounds-north-america-likely-cause-wood-thrush-decline/), demonstrating how changes to a local ecosystem can have global consequences.
+## Local Declines; Global Connections
 
-TODO: One more paragraph with a story of another bird perhaps connected to climate change. Nuthatches perhaps or another species of local concern?
+Certain iconic specialist species such as the Wood Thrush have declined by as much as `r wdtrsh`% annually over the past 20 years. Anyone who has enjoyed a summer hike in [one of our local parks](https://gis.orangecountync.gov:8443/TrailsAndParks/default.html) will certainly recognize the [Wood Thrush’s flutely song](https://www.allaboutbirds.org/guide/Wood_Thrush/sounds). While loss and fragmentation of local deciduous forests have certainly contributed to Wood Thrush decline, like all migratory birds, its [winter range and travel routes](https://insider.si.edu/2016/01/loss-breeding-grounds-north-america-likely-cause-wood-thrush-decline/) are equally important, demonstrating how changes to a local ecosystem can have global consequences.
 
+## Ecological Government
 
-#### Recommended Actions
+Loss of biodiversity is partly driven by habitat changes occuring at many scales. At a county level, the Orange County government has tremendous power to affect changes to habitat as a primary policy maker regarding land use. The county’s [2030 comprehensive land use plan](https://www.orangecountync.gov/1242/2030-Comprehensive-Plan) adopted in 2008 includes a [Natural and Cultural Systems Element](https://www.orangecountync.gov/DocumentCenter/View/3545/Chapter-6-Natural-and-Cultural-Systems-Element-PDF). The Board of County Commissioners, the Commission for the Environment, and local organizations must continue to monitor and ensure that the county’s commitments to natural systems are given equal consideration in county policies.
 
-Actions for BOCC
+## Ecological Citizens
 
-* Install bird proofing on windows of county buildings
-* Encourage use of native plants in landscaping and reduce amount of lawn/mown areas.
+At the acre by acre and tree by tree scale, land owners can enhance or diminish wildlife habitat through landscaping practices. Species of plants native to our area tend to have more wildlife value than introduced species -- even those that appear to be good for wildlife. Butterfly Bush ([*Buddleja davidii*](https://en.wikipedia.org/wiki/Buddleja)[)](https://en.wikipedia.org/wiki/Buddleja) is a popular shrub whose abundant nectaries attracts swarms of butterflies in the summer. Its foliage, however, is a food desert for caterpillars, which are a critical food during breeding season for many bird species. Native herbaceous plants such as [Joe-Pye Weed](https://projects.ncsu.edu/goingnative/howto/mapping/nplants/plant_detail.php?id=674) and shrubs like [Mapleleaf Viburnum](https://projects.ncsu.edu/goingnative/howto/mapping/nplants/plant_detail.php?id=620) are both aesthetically pleasing and adapted to our climate and local [food web](https://en.wikipedia.org/wiki/Food_web).
 
-Actions for citizens
+## Recommended Actions
 
-* Get involved with science: MBBS, New Hope Audubon, Chapel Hill Bird Club, inaturalist
-* Plant native trees: https://projects.ncsu.edu/goingnative/howto/index.html
+*Actions for BOCC*
 
+* The county's [current UDO](http://www.orangecountync.gov/DocumentCenter/View/5791/UDO-PDF?bidId=) specifies that the list of preferred plants for [development projects "shall include … native species](https://docs.google.com/document/d/11J3DNkdrb0F7yd69Y5xY-wQO6WMeF3SrahX-L97MSz0/edit?usp=sharing)." Based on anecdotal observations by CFE members of new landscaping projects, native species are underutilized. The county should consider policy that stimulates landscaping with native species.
 
-References: links to relevant materials
+* On all new county buildings, especially those with designs that include large windows, consider requiring [measures that prevent bird-window collisions](https://www.allaboutbirds.org/why-birds-hit-windows-and-how-you-can-help-prevent-it/).
+
+* Free-roaming and feral cats are a predation threat to ground and shrub nesting birds such as [Eastern Meadowlarks](https://www.allaboutbirds.org/guide/Eastern_Meadowlark/lifehistory) and [Wood Thrush](https://www.allaboutbirds.org/guide/Wood_Thrush/lifehistory), two species in decline locally. In 2014, the Orange County’s Animal Services Advisory Board appointed a [Free Roaming Cats Task Force](http://www.orangecountync.gov/431/Free-Roaming-Cat-Task-Force) whose charge included [wildlife protection](http://www.orangecountync.gov/DocumentCenter/View/1041/Charge-from-ASAB-PDF). The task force provided an excellent set of [recommendations and strategic plan](http://www.orangecountync.gov/DocumentCenter/View/1040/Managing-Free-Roaming-Cats---Task-Force-Recommendations-PDF) for a challenging problem. It is not clear whether the strategy and timetable was adopted or sufficiently funded. The BOCC should consider hearing a report on the Task Force progress and updating the plan as necessary and to continue to promote spay/neuter programs in the county.
+
+*Actions for citizens*
+
+* Monitor your local environment and contribute to science through citizen science projects like [ebird](https://ebird.org/home) and [inaturalist](https://www.inaturalist.org/).
+
+* Replace landscaping plants with native species. The NC Cooperative Extension [Going Native](https://projects.ncsu.edu/goingnative/index.html) site and the [NC Botanical Gardens](http://ncbg.unc.edu/native-southeastern-plants/) are excellent resources for planting ideas. 
+
